@@ -1,0 +1,213 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f7f3f3;
+    color: #292929;
+}
+
+.encabezado {
+    background: #991b2b;
+    color: white;
+    padding: 22px 8%;
+}
+
+.marca {
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.encabezado p {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 25px 20px;
+}
+
+.introduccion {
+    padding: 15px 0 20px;
+    border-bottom: 2px solid #e7c9cd;
+    margin-bottom: 25px;
+}
+
+.introduccion h1 {
+    color: #991b2b;
+    margin-bottom: 8px;
+    font-size: 28px;
+}
+
+.introduccion p {
+    margin-top: 0;
+    color: #555;
+}
+
+h2 {
+    color: #991b2b;
+}
+
+.catalogo h2 {
+    margin-bottom: 18px;
+}
+
+.paises {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.pais {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: white;
+    border: 1px solid #e2d4d6;
+    border-left: 4px solid #b9273c;
+}
+
+.pais img {
+    width: 75px;
+    height: 55px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.pais-info h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+button {
+    background: #b9273c;
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+button:hover {
+    background: #7f1423;
+}
+
+.resultados {
+    background: white;
+    border: 1px solid #e2d4d6;
+    padding: 22px;
+}
+
+.boton-volver {
+    margin-bottom: 20px;
+}
+
+.titulo-resultados {
+    border-bottom: 1px solid #e7c9cd;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+}
+
+.titulo-resultados span {
+    color: #b9273c;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.titulo-resultados h2 {
+    margin: 8px 0;
+    font-size: 27px;
+}
+
+.titulo-resultados p {
+    color: #555;
+    margin-bottom: 0;
+}
+
+.lista-periodicos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.periodico {
+    position: relative;
+    padding: 16px;
+    border: 1px solid #eadadd;
+    background: #fffafa;
+}
+
+.numero {
+    color: #b9273c;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.periodico h3 {
+    margin: 8px 0 14px;
+    font-size: 17px;
+}
+
+.periodico a {
+    color: #a21c30;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.periodico a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    color: #666;
+    padding: 18px;
+    background: #eee5e6;
+    font-size: 13px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 750px) {
+    .paises {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pais {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .lista-periodicos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 18px 12px;
+    }
+
+    .paises {
+        grid-template-columns: 1fr;
+    }
+
+    .pais {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .introduccion h1 {
+        font-size: 23px;
+    }
+}

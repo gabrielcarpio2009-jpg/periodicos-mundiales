@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias del mundo</title>
+    <link rel="stylesheet" href="paises.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="marca">DIRECTORIOS DE PERIÓDICOS DEL MUNDO</div>
+        <p>Encuentra periódicos de diferentes países en un solo lugar.</p>
+    </header>
+
+    <main>
+        <section class="introduccion">
+            <h1>Explora la prensa internacional</h1>
+            <p>Elige un país para consultar algunos de sus periódicos más conocidos.</p>
+        </section>
+
+        <section id="seccionPaises" class="catalogo">
+            <h2>Selecciona un país</h2>
+            <div class="paises">
+                <article class="pais">
+                    <img src="ECUADOR.JPG" alt="Bandera de Ecuador">
+                    <div class="pais-info">
+                        <h3>Ecuador</h3>
+                        <button onclick="mostrarPais('Ecuador')">Ver periódicos</button>
+                    </div>
+                </article>
+
+                <article class="pais">
+                    <img src="COLOMBIA.jpg" alt="Bandera de Colombia">
+                    <div class="pais-info">
+                        <h3>Colombia</h3>
+                        <button onclick="mostrarPais('Colombia')">Ver periódicos</button>
+                    </div>
+                </article>
+
+                <article class="pais">
+                    <img src="ESPAÑA.jpg" alt="Bandera de España">
+                    <div class="pais-info">
+                        <h3>España</h3>
+                        <button onclick="mostrarPais('España')">Ver periódicos</button>
+                    </div>
+                </article>
+
+                <article class="pais">
+                    <img src="EEUU.jpg" alt="Bandera de Estados Unidos">
+                    <div class="pais-info">
+                        <h3>Estados Unidos</h3>
+                        <button onclick="mostrarPais('EEUU')">Ver periódicos</button>
+                    </div>
+                </article>
+
+                <article class="pais">
+                    <img src="ITALIA.jpg" alt="Bandera de Italia">
+                    <div class="pais-info">
+                        <h3>Italia</h3>
+                        <button onclick="mostrarPais('Italia')">Ver periódicos</button>
+                    </div>
+                </article>
+
+                <article class="pais">
+                    <img src="COREADELNORTE.jpg" alt="Bandera de Corea del Norte">
+                    <div class="pais-info">
+                        <h3>Corea del Norte</h3>
+                        <button onclick="mostrarPais('Corea del Norte')">Ver periódicos</button>
+                    </div>
+                </article>
+
+                <article class="pais">
+                    <img src="BRAZIL.jpg" alt="Bandera de Brasil">
+                    <div class="pais-info">
+                        <h3>Brasil</h3>
+                        <button onclick="mostrarPais('Brasil')">Ver periódicos</button>
+                    </div>
+                </article>
+
+                <article class="pais">
+                    <img src="CHILE.jpg" alt="Bandera de Chile">
+                    <div class="pais-info">
+                        <h3>Chile</h3>
+                        <button onclick="mostrarPais('Chile')">Ver periódicos</button>
+                    </div>
+                </article>
+
+                <article class="pais">
+                    <img src="JAPON.jpg" alt="Bandera de Japón">
+                    <div class="pais-info">
+                        <h3>Japón</h3>
+                        <button onclick="mostrarPais('Japón')">Ver periódicos</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="seccionPeriodicos" class="resultados" hidden>
+            <button class="boton-volver" onclick="volverPaises()">← Regresar a países</button>
+            <div class="titulo-resultados">
+                <span>DIRECTORIO DE PRENSA</span>
+                <h2 id="nombrePais"></h2>
+                <p id="descripcion"></p>
+            </div>
+            <div id="listaPeriodicos" class="lista-periodicos"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>GABRIEL CARPIO - 3ro "A" Informática</p>
+    </footer>
+
+    <script>
+        const periodicos = {
+            "Ecuador": {
+                descripcion: "Medios informativos de Ecuador.",
+                diarios: [
+                    ["El Comercio", "https://www.elcomercio.com/"],
+                    ["El Universo", "https://www.eluniverso.com/"],
+                    ["Primicias", "https://www.primicias.ec/"],
+                    ["La Hora", "https://www.lahora.com.ec/"],
+                    ["Expreso", "https://www.expreso.ec/"]
+                ]
+            },
+            "Colombia": {
+                descripcion: "Medios informativos de Colombia.",
+                diarios: [
+                    ["El Tiempo", "https://www.eltiempo.com/"],
+                    ["El Espectador", "https://www.elespectador.com/"],
+                    ["El Nuevo Siglo", "https://www.elnuevosiglo.com.co/"],
+                    ["Publimetro", "https://www.publimetro.co/"],
+                    ["La República", "https://www.larepublica.co/"],
+                    ["Portafolio", "https://www.portafolio.co/"]
+                ]
+            },
+            "España": {
+                descripcion: "Medios informativos de España.",
+                diarios: [
+                    ["El País", "https://elpais.com/"],
+                    ["El Mundo", "https://www.elmundo.es/"],
+                    ["ABC", "https://www.abc.es/"],
+                    ["La Razón", "https://www.larazon.es/"],
+                    ["La Vanguardia", "https://www.lavanguardia.com/"],
+                    ["20minutos", "https://www.20minutos.es/"]
+                ]
+            },
+            "EEUU": {
+                descripcion: "Medios informativos de Estados Unidos.",
+                diarios: [
+                    ["The New York Times", "https://www.nytimes.com/"],
+                    ["The Washington Post", "https://www.washingtonpost.com/"],
+                    ["The Wall Street Journal", "https://www.wsj.com/"],
+                    ["USA Today", "https://www.usatoday.com/"],
+                    ["Los Angeles Times", "https://www.latimes.com/"]
+                ]
+            },
+            "Italia": {
+                descripcion: "Medios informativos de Italia.",
+                diarios: [
+                    ["Corriere della Sera", "https://www.corriere.it/"],
+                    ["La Repubblica", "https://www.repubblica.it/"],
+                    ["La Stampa", "https://www.lastampa.it/"],
+                    ["Il Sole 24 Ore", "https://www.ilsole24ore.com/"],
+                    ["Il Messaggero", "https://www.ilmessaggero.it/"]
+                ]
+            },
+            "Corea del Norte": {
+                descripcion: "Medios informativos disponibles de Corea del Norte. La oferta de medios independientes es muy limitada.",
+                diarios: [
+                    ["KCNA", "https://www.kcna.kp/"],
+                    ["Rodong Sinmun", "https://www.rodong.rep.kp/"],
+                    ["Naenara", "https://www.naenara.com.kp/"],
+                    ["The Pyongyang Times", "https://www.pyongyangtimes.com.kp/"],
+                    ["Voice of Korea", "https://www.vok.rep.kp/"]
+                ]
+            },
+            "Brasil": {
+                descripcion: "Medios informativos de Brasil.",
+                diarios: [
+                    ["O Globo", "https://oglobo.globo.com/"],
+                    ["Folha de S.Paulo", "https://www.folha.uol.com.br/"],
+                    ["Estadão", "https://www.estadao.com.br/"],
+                    ["Correio Braziliense", "https://www.correiobraziliense.com.br/"],
+                    ["Jornal do Brasil", "https://www.jb.com.br/"]
+                ]
+            },
+            "Chile": {
+                descripcion: "Medios informativos de Chile.",
+                diarios: [
+                    ["El Mercurio / Emol", "https://www.emol.com/"],
+                    ["La Tercera", "https://www.latercera.com/"],
+                    ["BioBioChile", "https://www.biobiochile.cl/"],
+                    ["Cooperativa", "https://cooperativa.cl/"],
+                    ["Diario Financiero", "https://www.df.cl/"]
+                ]
+            },
+            "Japón": {
+                descripcion: "Medios informativos de Japón.",
+                diarios: [
+                    ["The Japan Times", "https://www.japantimes.co.jp/"],
+                    ["The Asahi Shimbun", "https://www.asahi.com/"],
+                    ["Mainichi Shimbun", "https://mainichi.jp/"],
+                    ["Yomiuri Shimbun", "https://www.yomiuri.co.jp/"],
+                    ["Nikkei", "https://www.nikkei.com/"]
+                ]
+            }
+        };
+
+        function mostrarPais(pais) {
+            const datos = periodicos[pais];
+            document.getElementById("seccionPaises").hidden = true;
+            document.getElementById("seccionPeriodicos").hidden = false;
+            document.getElementById("nombrePais").textContent = pais;
+            document.getElementById("descripcion").textContent = datos.descripcion;
+
+            const lista = document.getElementById("listaPeriodicos");
+            lista.innerHTML = "";
+
+            datos.diarios.forEach(function(periodico, indice) {
+                const tarjeta = document.createElement("article");
+                tarjeta.className = "periodico";
+
+                const numero = document.createElement("span");
+                numero.className = "numero";
+                numero.textContent = String(indice + 1).padStart(2, "0");
+
+                const nombre = document.createElement("h3");
+                nombre.textContent = periodico[0];
+
+                const enlace = document.createElement("a");
+                enlace.href = periodico[1];
+                enlace.textContent = "Visitar sitio web ↗";
+                enlace.target = "_blank";
+                enlace.rel = "noopener noreferrer";
+
+                tarjeta.appendChild(numero);
+                tarjeta.appendChild(nombre);
+                tarjeta.appendChild(enlace);
+                lista.appendChild(tarjeta);
+            });
+
+            window.scrollTo(0, 0);
+        }
+
+        function volverPaises() {
+            document.getElementById("seccionPeriodicos").hidden = true;
+            document.getElementById("seccionPaises").hidden = false;
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
